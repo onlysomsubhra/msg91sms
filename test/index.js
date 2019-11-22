@@ -1,9 +1,9 @@
 const msg91 = require('../index');
 
-const Auth_Key = '4214AzNP9EPSDkd5d9ee526';
-const Mobiles = '919433412714';
-const Message = 'Msg91 test sms from Apps';
-const Sender = 'LPESAA';
+const Auth_Key = 'XXX';
+const Mobiles = '91XXXXXXXXXX';
+const Message = 'Msg91 test sms';
+const Sender = 'XXX';
 const Route = '4';
 const Response_Type = 'json';
 
