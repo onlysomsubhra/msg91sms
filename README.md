@@ -5,7 +5,7 @@ Msg91 API Client for Node.js using [Msg91 API](https://world.msg91.com/apidoc/te
 ## Install
 
 ```bash
-npm install msg91-sms --save
+npm install msg91-send-sms --save
 ```
 
 ## Test
@@ -17,7 +17,7 @@ npm test
 
 ```javascript
 //import library
-const msg91 = require('msg91-sms');
+const msg91 = require('msg91-send-sms');
 
 //get data from database or ...
 const Auth_Key = 'XXX';
@@ -38,7 +38,7 @@ const obj = {
 
 //send sms
 new Promise((resolve, reject) => {
-    infobip(obj)
+    msg91(obj)
     .then(res => {
         if(res.type == 'error'){
             console.log('error: ', res);
