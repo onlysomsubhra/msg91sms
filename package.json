@@ -1,6 +1,6 @@
 {
   "name": "msg91-sms",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Send sms via msg91 gateway and check balance",
   "main": "index.js",
   "scripts": {
