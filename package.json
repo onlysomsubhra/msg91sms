@@ -1,12 +1,12 @@
 {
-  "name": "msg91-sms",
-  "version": "1.0.1",
+  "name": "msg91-send-sms",
+  "version": "1.0.0",
   "description": "Send sms via msg91 gateway and check balance",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Somsubhra",
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.15",
