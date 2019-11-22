@@ -7,7 +7,7 @@ const config = {
     message: null,
     sender: null,
     route: null,
-    response: null,
+    response_type: null,
     timeout: 5000
 }
 
@@ -16,13 +16,14 @@ function send(obj) {
     const url = 'http://world.msg91.com/api/sendhttp.php';
     
     obj = Object.assign(config,obj);
+    //console.log('obj',obj);
     
     let auth_key = obj.auth_key,
         mobiles = obj.mobiles,
         message = obj.message,
         sender = obj.sender,
         route = obj.route,
-        response = obj.response,
+        response_type = obj.response_type,
         timeout = obj.timeout;
 
     if (_.isEmpty(auth_key)) {
@@ -40,17 +41,14 @@ function send(obj) {
     if (_.isEmpty(route)) {
         throw ("Invalid route");
     }
-    if (_.isEmpty(response)) {
-        throw ("Invalid response");
-    }
 
     const headers = {
         'Content-Type': 'application/json',
-        'accept': 'application/json',
+        //'accept': 'application/json',
     };
 
-    const data = {authkey:auth_key, mobiles:mobiles, message:message, sender:sender, route:route, response:response};
-
+    const data = {authkey:auth_key, mobiles:mobiles, message:message, sender:sender, route:route, response:response_type};
+    //console.log('data',data);
     let response = {};
     return new Promise((resolve, reject) => {
         superagent
@@ -64,8 +62,8 @@ function send(obj) {
             .then((res) => {
                 // Do something
                 console.log(res);
-                const resp = res;
-
+                const resp = res.body;
+                console.log('resp',resp);
                 //var messageId = resp.messageId;
                 
                 /*if(code == 200) {
@@ -73,9 +71,12 @@ function send(obj) {
                 } else {
                     response = {'type':'error', 'code':code, 'responce':resp};
                 }*/
-                resolve(res);
+                resolve(resp);
             })
-            .catch(err => reject(err));
+            .catch((err) => {
+                console.log('err',err);
+                reject(err);
+            });
     });
 }
 
